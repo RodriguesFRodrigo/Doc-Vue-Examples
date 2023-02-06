@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-
 const parentMsg = ref('Parent')
 const list = ref([{message: 'Foo'}, {message: 'Bar'}])
-
 const myObject = ref({
 	title: 'How to do lists in Vue',
   author: 'Jane Doe',
@@ -40,4 +38,14 @@ const myObject = ref({
     	<li>{{ item.message }}</li>
     </template>
   </ul>
+  
+  <h2>
+    Mantendo o estado com key
+  </h2>
+  <!-- Ao usar <template v-for>, o key deve ser colocado no <template> contêiner: -->
+  <template v-for="item in list" :key="item.message">
+    <p>
+      {{ item.message }}
+    </p>
+  </template>
 </template>
