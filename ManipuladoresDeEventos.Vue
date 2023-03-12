@@ -18,6 +18,9 @@ export default {
     sayHello(name) {
       alert(`Hello ${name}`);
     },
+    war(message, event) {
+      alert(event);
+    }
   },
 }
 </script>
@@ -29,10 +32,13 @@ export default {
     <button @click="counter++">Increment</button>
   </div>
   <div>
-	  <button @click="greet">Greet</button>    
+    <button @click="greet">Greet</button>    
   </div>
   <div>
-	  <button @click="sayHello('Rodrigo', event)">Say Hello</button>    
+    <button @click="sayHello('Rodrigo', event)">Say Hello</button>    
   </div>
+  <!-- Accessing Event Argument in Inline Handlers -->
+  <button @click="war('Danger!', $event)">Say Warn</button>
+  <button @click="(event) => war('Danger!', event)">Say Warn</button>
 </template>
 
