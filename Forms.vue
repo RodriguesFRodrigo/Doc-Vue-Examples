@@ -8,6 +8,13 @@ export default {
       checked: '',
       checkedNames: [],
       picked: '',
+      selected: 'A',
+      options: [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+      ],
+      number: 0,
     }
   }
 }
@@ -58,5 +65,34 @@ export default {
     <label for="one">One</label>
     <input type="radio" id="two" value="Two" v-model="picked" />
     <label for="two">Two</label>
+  </div>
+  
+  <div>
+   	<select v-model="selected">
+      <option v-for="option in options" :value="option.value">
+        {{ option.text }}
+      </option>
+		</select>
+  </div>
+  
+  <!-- Modificadores -->
+  <!-- Lazy
+		O valor do input é sincronizado com data após o fim do evento change
+	-->
+  <!-- Trim
+		Remove espaços
+	-->
+  <div>
+    <p>
+      Text has the value: {{ text2 }}
+    </p>
+  	<input v-model.lazy.trim="text2"/>
+  </div>
+  
+  <div>
+    <p>
+      Number has the value: {{ number }}
+    </p>
+  	<input v-model.number="number"/>
   </div>
 </template>
